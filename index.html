@@ -1,427 +1,284 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Repairs - Convenient On-Site PC Service | H Farid</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font (Inter) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        tealBrand: {
-                            50: '#f0fdfa',
-                            100: '#ccfbf1',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e',
-                            800: '#115e59',
-                            900: '#134e4a',
-                        },
-                        slateDark: {
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            950: '#020617',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Computer Repairs | Convenient On-Site PC Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --card-border: #30363d;
+            --primary-teal: #00bcd4;
+            --accent-cyan: #00e5ff;
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --light-bg: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            border-bottom: 1px solid var(--card-border);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .header-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .badge-guarantee {
+            display: inline-block;
+            background-color: transparent;
+            border: 2px solid var(--primary-teal);
+            color: var(--primary-teal);
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .contact-bar {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-bar h2 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+        }
+
+        .phone-button {
+            display: inline-block;
+            margin-top: 0.8rem;
+            background: var(--primary-teal);
+            color: #0d1117;
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .phone-button:hover {
+            background: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary-teal);
+        }
+
+        .card h3 {
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Form Styles */
+        .form-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-section h2 {
+            margin-bottom: 1rem;
+            color: var(--primary-teal);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--bg-color);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-teal);
+            color: #0d1117;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-cyan);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+<body>
 
-    <header class="sticky top-0 z-50 bg-slateDark-900/95 backdrop-blur-md border-b border-slate-800 text-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-11 h-11 rounded-xl bg-tealBrand-600 text-white flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-tealBrand-500 transition-colors">
-                    <i class="fa-solid fa-laptop-medical"></i>
-                </div>
-                <div>
-                    <h1 class="text-xl sm:text-2xl font-black tracking-tight text-white leading-none">COMPUTER REPAIRS</h1>
-                    <p class="text-xs font-semibold text-tealBrand-500 tracking-wide uppercase mt-1">Convenient On-Site PC Service</p>
-                </div>
-            </a>
-            
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#services" class="text-sm font-medium text-slate-300 hover:text-tealBrand-500 transition-colors">Services</a>
-                <a href="#guarantee" class="text-sm font-medium text-slate-300 hover:text-tealBrand-500 transition-colors">Guarantee</a>
-                <a href="#estimator" class="text-sm font-medium text-slate-300 hover:text-tealBrand-500 transition-colors">Estimate</a>
-                <a href="#faq" class="text-sm font-medium text-slate-300 hover:text-tealBrand-500 transition-colors">FAQ</a>
-                <a href="tel:5854335933" class="inline-flex items-center px-5 py-2.5 rounded-xl bg-tealBrand-600 text-white text-sm font-bold shadow-md hover:bg-tealBrand-500 transition-all hover:scale-105 active:scale-95">
-                    <i class="fa-solid fa-phone mr-2"></i> 585-433-5933
-                </a>
-            </nav>
-
-            <div class="md:hidden flex items-center space-x-2">
-                <a href="tel:5854335933" class="p-2.5 rounded-lg bg-tealBrand-600 text-white font-bold flex items-center text-sm shadow">
-                    <i class="fa-solid fa-phone mr-1.5"></i> Call Now
-                </a>
-            </div>
+    <header>
+        <div class="header-content">
+            <h1>Computer Repairs</h1>
+            <p>Convenient On-Site PC Service</p>
+            <div class="badge-guarantee">NO FIX, NO FEE GUARANTEE</div>
         </div>
     </header>
 
-    <section class="relative bg-slateDark-900 text-white py-12 lg:py-20 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-tealBrand-900/40 via-slateDark-900 to-slateDark-950 pointer-events-none"></div>
+    <div class="container">
+        
+        <div class="contact-bar">
+            <h2>H Farid</h2>
+            <a href="tel:5854335933" class="phone-button">📞 Call/Text: 585-433-5333</a>
+        </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-tealBrand-900/60 border border-tealBrand-500/30 text-tealBrand-500 font-semibold text-xs uppercase tracking-widest">
-                        <i class="fa-solid fa-house-laptop mr-2"></i> On-Site Repair & Diagnostic Services
-                    </div>
-                    
-                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-                        Fast PC Service <br class="hidden sm:inline"><span class="text-transparent bg-clip-text bg-gradient-to-r from-tealBrand-500 to-emerald-400">Right At Your Door.</span>
-                    </h2>
-                    
-                    <p class="text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                        Slow computer? Virus pop-ups? Wi-Fi not connecting? H Farid brings expert technical troubleshooting directly to your home or office.
-                    </p>
-
-                    <!-- Highlighted Guarantee Badge -->
-                    <div id="guarantee" class="p-4 sm:p-5 rounded-2xl bg-slateDark-800/80 border border-slate-700/60 shadow-xl flex items-center space-x-4 max-w-md mx-auto lg:mx-0">
-                        <div class="w-14 h-14 rounded-xl bg-tealBrand-600 text-white flex items-center justify-center font-bold text-2xl shrink-0 shadow-lg shadow-tealBrand-600/30">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <div class="text-left">
-                            <span class="block text-xs font-extrabold text-tealBrand-500 uppercase tracking-wider">100% Risk-Free Guarantee</span>
-                            <span class="text-xl font-black text-white">NO FIX, NO FEE!</span>
-                            <p class="text-xs text-slate-400 mt-0.5">If we can't solve your issue, you don't pay a single dime.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
-                        <a href="tel:5854335933" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-tealBrand-600 text-white font-bold text-base shadow-lg shadow-tealBrand-600/30 hover:bg-tealBrand-500 transition-all flex items-center justify-center">
-                            <i class="fa-solid fa-phone mr-2"></i> Call 585-433-5933
-                        </a>
-                        <a href="#contact-form" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold text-base transition-all flex items-center justify-center border border-slate-700">
-                            <i class="fa-solid fa-calendar-check mr-2"></i> Request Visit
-                        </a>
-                    </div>
-                </div>
-
-                <!-- On-Site Appointment Form -->
-                <div id="contact-form" class="lg:col-span-5 bg-white text-slate-900 p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-100">
-                    <div class="border-b border-slate-100 pb-4 mb-6">
-                        <h3 class="text-2xl font-black text-slateDark-900">Book an Appointment</h3>
-                        <p class="text-xs font-medium text-slate-500 mt-1">Fill in details for a prompt response & scheduling.</p>
-                    </div>
-
-                    <form action="https://formspree.io/f/xbglnenk" method="POST" class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Name</label>
-                            <input type="text" required placeholder="e.g. John Smith" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-tealBrand-600 focus:bg-white focus:outline-none text-sm transition">
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phone Number</label>
-                                <input type="tel" required placeholder="585-433-5933" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-tealBrand-600 focus:bg-white focus:outline-none text-sm transition">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Preferred Time</label>
-                                <select class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-tealBrand-600 focus:bg-white focus:outline-none text-sm transition">
-                                    <option value="Morning">Morning</option>
-                                    <option value="Afternoon">Afternoon</option>
-                                    <option value="Evening">Evening</option>
-                                    <option value="Weekend">Weekend</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Service Required</label>
-                            <select id="serviceSelect" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-tealBrand-600 focus:bg-white focus:outline-none text-sm transition">
-                                <option value="Computer running slow">Computer Running Slow / Tune-Up</option>
-                                <option value="Virus / Malware Protection">Virus / Malware / Security Protection</option>
-                                <option value="WiFi / Router / Printer setup">WiFi / Router / Printer Setup</option>
-                                <option value="Hardware Assembly & Repair">Hardware Assembly & Upgrades</option>
-                                <option value="Troubleshooting & Training">Troubleshooting & Training</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Describe the Problem</label>
-                            <textarea rows="3" placeholder="Explain what issues you're experiencing..." class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-tealBrand-600 focus:bg-white focus:outline-none text-sm transition"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full py-4 rounded-xl bg-slateDark-900 hover:bg-slateDark-800 text-white font-extrabold text-sm shadow-md transition-all">
-                            Submit Repair Request
-                        </button>
-                    </form>
-
-                    <div id="formSuccessMessage" class="hidden text-center py-8 space-y-4">
-                        <div class="w-16 h-16 bg-tealBrand-100 text-tealBrand-700 rounded-full flex items-center justify-center mx-auto text-2xl">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-                        <h4 class="font-extrabold text-xl text-slateDark-900">Request Received!</h4>
-                        <p class="text-xs text-slate-600 max-w-xs mx-auto">Thank you for reaching out. H Farid will call you back shortly to confirm your requested visit.</p>
-                        <button onclick="resetForm()" class="text-xs font-bold text-tealBrand-600 hover:underline">Submit another request</button>
-                    </div>
-                </div>
-
+        <h2 style="margin-bottom: 1.2rem; color: var(--text-main);">Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>⚡ Speed & Performance</h3>
+                <p>Computer running slow? Complete PC tune-up, cleanup, and hardware optimization to get your system running fast again.</p>
+            </div>
+            <div class="card">
+                <h3>🛡️ Security Protection</h3>
+                <p>Comprehensive virus, malware, spyware, and adware removal alongside robust protection setup.</p>
+            </div>
+            <div class="card">
+                <h3>📶 WiFi & Network Setup</h3>
+                <p>Home network troubleshooting, wireless router setup, printer configuration, and smart device connectivity.</p>
+            </div>
+            <div class="card">
+                <h3>💻 Troubleshooting & Training</h3>
+                <p>On-site diagnosis, hardware repairs, system upgrades, and personalized 1-on-1 technology training.</p>
             </div>
         </div>
-    </section>
 
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-extrabold text-tealBrand-600 uppercase tracking-widest">Complete Tech Support</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slateDark-900 mt-1">Services Offered</h2>
-                <p class="text-sm text-slate-500 mt-2">Comprehensive repair, protection, and setup solutions tailored to your needs.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Service 1 -->
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-tealBrand-500 hover:shadow-xl transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-white text-tealBrand-600 flex items-center justify-center text-2xl shadow-md mb-6 group-hover:bg-tealBrand-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-gauge-high"></i>
-                    </div>
-                    <h3 class="text-xl font-extrabold text-slateDark-900 mb-2">Computer Running Slow</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        Speed optimization, removing unnecessary startup programs, system deep cleanup, hardware health checks, and RAM/SSD upgrade recommendations.
-                    </p>
+        <!-- Corrected Formspree Form -->
+        <div class="form-section">
+            <h2>Book an Appointment</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Fill out the form below and we will contact you shortly to confirm your service.</p>
+            
+            <form action="https://formspree.io/f/xbglnenk" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
                 </div>
-
-                <!-- Service 2 -->
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-tealBrand-500 hover:shadow-xl transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-white text-tealBrand-600 flex items-center justify-center text-2xl shadow-md mb-6 group-hover:bg-tealBrand-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-shield-virus"></i>
-                    </div>
-                    <h3 class="text-xl font-extrabold text-slateDark-900 mb-2">Virus & Security Protection</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        Complete removal of malware, ransomware, adware pop-ups, and spyware. Installation of trusted security protection and system firewall tuning.
-                    </p>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="585-000-0000">
                 </div>
-
-                <!-- Service 3 -->
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-tealBrand-500 hover:shadow-xl transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-white text-tealBrand-600 flex items-center justify-center text-2xl shadow-md mb-6 group-hover:bg-tealBrand-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-wifi"></i>
-                    </div>
-                    <h3 class="text-xl font-extrabold text-slateDark-900 mb-2">WiFi / Router / Printer Setup</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        Setting up wireless mesh routers, optimizing home WiFi coverage, troubleshooting connection drops, and configuring network printer sharing.
-                    </p>
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="service">
+                        <option value="Slow Computer Tune-Up">Slow Computer / Tune-Up</option>
+                        <option value="Virus / Malware Removal">Virus / Malware Removal</option>
+                        <option value="WiFi / Network / Printer Setup">WiFi / Network / Printer Setup</option>
+                        <option value="Hardware Repair / Upgrade">Hardware Repair / Upgrade</option>
+                        <option value="Computer Training">Computer Training</option>
+                        <option value="Other">Other Service</option>
+                    </select>
                 </div>
-
-                <!-- Service 4 -->
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-tealBrand-500 hover:shadow-xl transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-white text-tealBrand-600 flex items-center justify-center text-2xl shadow-md mb-6 group-hover:bg-tealBrand-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
-                    <h3 class="text-xl font-extrabold text-slateDark-900 mb-2">Hardware Assembly & Repair</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        Custom desktop PC builds, power supply replacements, hard drive to SSD cloning, cooling fan repair, and component upgrades.
-                    </p>
+                <div class="form-group">
+                    <label for="preferred-date">Preferred Date / Time</label>
+                    <input type="text" id="preferred-date" name="preferred-date" placeholder="e.g. Tomorrow Afternoon">
                 </div>
-
-                <!-- Service 5 -->
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-tealBrand-500 hover:shadow-xl transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-white text-tealBrand-600 flex items-center justify-center text-2xl shadow-md mb-6 group-hover:bg-tealBrand-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-chalkboard-user"></i>
-                    </div>
-                    <h3 class="text-xl font-extrabold text-slateDark-900 mb-2">Troubleshooting & Training</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        One-on-one technology guidance, email setup, data migration from old to new PCs, software installation, and customized tech lessons.
-                    </p>
+                <div class="form-group">
+                    <label for="details">Describe the Problem</label>
+                    <textarea id="details" name="details" rows="4" placeholder="Briefly explain what issue you are experiencing..."></textarea>
                 </div>
-
-                <!-- Service 6 -->
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-tealBrand-500 hover:shadow-xl transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-white text-tealBrand-600 flex items-center justify-center text-2xl shadow-md mb-6 group-hover:bg-tealBrand-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-cloud-arrow-up"></i>
-                    </div>
-                    <h3 class="text-xl font-extrabold text-slateDark-900 mb-2">Data Backup & Recovery</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        Recovering lost photos or documents, setting up automatic local or cloud backups, and safeguarding important family and business files.
-                    </p>
-                </div>
-
-            </div>
+                <button type="submit" class="submit-btn">Submit Booking Request</button>
+            </form>
         </div>
-    </section>
 
-    <section id="estimator" class="py-20 bg-slate-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200">
-                <div class="text-center max-w-xl mx-auto mb-8">
-                    <span class="text-xs font-bold text-tealBrand-600 uppercase tracking-widest">Instant Price Calculator</span>
-                    <h3 class="text-2xl sm:text-3xl font-black text-slateDark-900 mt-1">Estimate Your Service Cost</h3>
-                    <p class="text-xs text-slate-500 mt-1">Select the services you need for an instant transparent rate estimate.</p>
-                </div>
+    </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                    <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 cursor-pointer hover:border-tealBrand-500 hover:bg-slate-50 transition">
-                        <div class="flex items-center space-x-3">
-                            <input type="checkbox" class="estimator-option w-5 h-5 text-tealBrand-600 rounded focus:ring-tealBrand-500" value="65" onchange="calculateEstimate()">
-                            <span class="text-sm font-semibold text-slate-800">PC Tune-up & Speed Optimization</span>
-                        </div>
-                        <span class="text-sm font-bold text-tealBrand-700">$65</span>
-                    </label>
-
-                    <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 cursor-pointer hover:border-tealBrand-500 hover:bg-slate-50 transition">
-                        <div class="flex items-center space-x-3">
-                            <input type="checkbox" class="estimator-option w-5 h-5 text-tealBrand-600 rounded focus:ring-tealBrand-500" value="75" onchange="calculateEstimate()">
-                            <span class="text-sm font-semibold text-slate-800">Virus & Malware Removal</span>
-                        </div>
-                        <span class="text-sm font-bold text-tealBrand-700">$75</span>
-                    </label>
-
-                    <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 cursor-pointer hover:border-tealBrand-500 hover:bg-slate-50 transition">
-                        <div class="flex items-center space-x-3">
-                            <input type="checkbox" class="estimator-option w-5 h-5 text-tealBrand-600 rounded focus:ring-tealBrand-500" value="50" onchange="calculateEstimate()">
-                            <span class="text-sm font-semibold text-slate-800">WiFi / Printer Configuration</span>
-                        </div>
-                        <span class="text-sm font-bold text-tealBrand-700">$50</span>
-                    </label>
-
-                    <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 cursor-pointer hover:border-tealBrand-500 hover:bg-slate-50 transition">
-                        <div class="flex items-center space-x-3">
-                            <input type="checkbox" class="estimator-option w-5 h-5 text-tealBrand-600 rounded focus:ring-tealBrand-500" value="60" onchange="calculateEstimate()">
-                            <span class="text-sm font-semibold text-slate-800">Personal Tech Training (1 Hour)</span>
-                        </div>
-                        <span class="text-sm font-bold text-tealBrand-700">$60</span>
-                    </label>
-                </div>
-
-                <div class="bg-tealBrand-50 p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-tealBrand-100">
-                    <div>
-                        <span class="text-xs font-bold text-tealBrand-800 uppercase tracking-wide">Estimated Total</span>
-                        <div class="text-3xl font-black text-slateDark-900">$<span id="estimatedTotal">0</span></div>
-                        <p class="text-[11px] text-slate-500 mt-0.5">*Remember: Covered by our <strong>No Fix, No Fee</strong> policy.</p>
-                    </div>
-                    <a href="tel:5854335933" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-tealBrand-600 text-white text-sm font-bold shadow-md hover:bg-tealBrand-700 transition text-center">
-                        <i class="fa-solid fa-phone mr-1.5"></i> Call to Confirm Quote
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                
-                <!-- Testimonials -->
-                <div>
-                    <span class="text-xs font-extrabold text-tealBrand-600 uppercase tracking-widest">Testimonials</span>
-                    <h3 class="text-3xl font-black text-slateDark-900 mt-1 mb-8">What Clients Say</h3>
-
-                    <div class="space-y-6">
-                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
-                            <div class="flex text-amber-400 text-sm">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="text-xs text-slate-600 italic">"H Farid repaired my desktop right in my home office. Saved me from having to unhook all the wires and take it to a shop. Very courteous!"</p>
-                            <div class="text-xs font-bold text-slateDark-900">— Michael R.</div>
-                        </div>
-
-                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
-                            <div class="flex text-amber-400 text-sm">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="text-xs text-slate-600 italic">"Cleaned out virus pop-ups that were completely preventing me from using my web browser. Honest work and reasonable price."</p>
-                            <div class="text-xs font-bold text-slateDark-900">— Sarah L.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Accordion -->
-                <div>
-                    <span class="text-xs font-extrabold text-tealBrand-600 uppercase tracking-widest">Helpful Info</span>
-                    <h3 class="text-3xl font-black text-slateDark-900 mt-1 mb-8">Frequently Asked Questions</h3>
-
-                    <div class="space-y-4">
-                        <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50">
-                            <h4 class="font-bold text-sm text-slateDark-900">What does "No Fix, No Fee" mean?</h4>
-                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">If we are unable to diagnose or repair your computer issue, you will not be charged for the service call or visit.</p>
-                        </div>
-
-                        <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50">
-                            <h4 class="font-bold text-sm text-slateDark-900">Do you offer on-site visits for residential homes?</h4>
-                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Yes! On-site service is our specialty. We come directly to your home or small business location.</p>
-                        </div>
-
-                        <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50">
-                            <h4 class="font-bold text-sm text-slateDark-900">How quickly can you come out?</h4>
-                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Same-day or next-day appointments are frequently available. Call <strong>585-433-5933</strong> to check immediate availability.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slateDark-950 text-white py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div>
-                    <h3 class="text-2xl font-black tracking-tight text-white">COMPUTER REPAIRS</h3>
-                    <p class="text-xs font-medium text-tealBrand-500 mt-0.5">Convenient On-Site PC Service | H Farid</p>
-                </div>
-                
-                <div class="flex items-center space-x-4">
-                    <a href="tel:5854335933" class="px-6 py-3 rounded-xl bg-tealBrand-600 text-white text-sm font-bold hover:bg-tealBrand-500 transition shadow-md">
-                        <i class="fa-solid fa-phone mr-2"></i> 585-433-5933
-                    </a>
-                </div>
-            </div>
-
-            <div class="mt-8 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
-                &copy; <span id="year"></span> Computer Repairs - H Farid. All rights reserved.
-            </div>
-        </div>
+    <footer>
+        <p>&copy; Computer Repairs - H Farid | Convenient On-Site PC Service</p>
+        <p>Rochester, NY & Surrounding Areas</p>
     </footer>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        function calculateEstimate() {
-            const checkboxes = document.querySelectorAll('.estimator-option');
-            let total = 0;
-            checkboxes.forEach(cb => {
-                if (cb.checked) {
-                    total += parseInt(cb.value);
-                }
-            });
-            document.getElementById('estimatedTotal').textContent = total;
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            document.getElementById('bookingForm').classList.add('hidden');
-            document.getElementById('formSuccessMessage').classList.remove('hidden');
-        }
-
-        function resetForm() {
-            document.getElementById('bookingForm').reset();
-            document.getElementById('bookingForm').classList.remove('hidden');
-            document.getElementById('formSuccessMessage').classList.add('hidden');
-        }
-    </script>
 </body>
 </html>
-```
