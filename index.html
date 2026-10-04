@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Repairs | Convenient On-Site PC Service</title>
+    <title>Computer Repairs | On-Site & Remote PC Support</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -49,6 +49,24 @@
             color: var(--text-muted);
             font-size: 1.2rem;
             margin-top: 0.5rem;
+        }
+
+        .service-type-pills {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background-color: #1f2937;
+            border: 1px solid var(--primary-teal);
+            color: var(--accent-cyan);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
         .badge-guarantee {
@@ -258,7 +276,13 @@
     <header>
         <div class="header-content">
             <h1>Computer Repairs</h1>
-            <p>Convenient On-Site PC Service</p>
+            <p>Convenient On-Site & Remote PC Assistance</p>
+            
+            <div class="service-type-pills">
+                <span class="pill">🚗 Local On-Site Visit</span>
+                <span class="pill">🌐 Fast Remote Online Support</span>
+            </div>
+
             <div class="badge-guarantee">🛡️ NO FIX, NO FEE GUARANTEE</div>
         </div>
     </header>
@@ -267,26 +291,26 @@
         
         <div class="contact-bar">
             <h2>H Farid</h2>
-            <a href="tel:5854335933" class="phone-button">📞 Call/Text: 585-433-5333</a>
+            <a href="tel:5854335933" class="phone-button">📞 Call/Text: 585-433-5933</a>
         </div>
 
         <h2 class="section-title">Our Services</h2>
         <div class="grid">
+            <div class="card">
+                <h3>🌐 Remote Assistance</h3>
+                <p>Instant online help for software issues, email setup, slow performance, and popup cleanup without waiting for a home visit.</p>
+            </div>
             <div class="card">
                 <h3>⚡ Speed & Performance</h3>
                 <p>Computer running slow? Complete PC tune-up, disk cleanup, startup optimization, and hardware upgrades (SSD installation).</p>
             </div>
             <div class="card">
                 <h3>🛡️ Security & Cleanups</h3>
-                <p>Comprehensive virus, malware, spyware, and pop-up removal with real-time security suite configuration.</p>
+                <p>Comprehensive virus, malware, spyware, and adware removal with real-time security suite configuration.</p>
             </div>
             <div class="card">
-                <h3>📶 WiFi & Network Setup</h3>
-                <p>Home wireless network troubleshooting, router configuration, printer connection, and device linking.</p>
-            </div>
-            <div class="card">
-                <h3>💻 Diagnostics & Training</h3>
-                <p>On-site hardware troubleshooting, custom PC builds, component replacement, and 1-on-1 technology tutoring.</p>
+                <h3>📶 On-Site WiFi & Hardware</h3>
+                <p>In-person home network troubleshooting, router configuration, printer setup, component replacements, and custom PC builds.</p>
             </div>
         </div>
 
@@ -296,6 +320,10 @@
             <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Transparent pricing with no hidden surprises. Diagnostics are free if service is performed!</p>
             
             <div class="estimator-row">
+                <span>Remote Online Support / Quick Diagnostics</span>
+                <span class="price-tag">$40 - $60</span>
+            </div>
+            <div class="estimator-row">
                 <span>System Tune-Up & Speed Optimization</span>
                 <span class="price-tag">$50 - $80</span>
             </div>
@@ -304,7 +332,7 @@
                 <span class="price-tag">$50 - $80</span>
             </div>
             <div class="estimator-row">
-                <span>WiFi, Router & Printer Setup</span>
+                <span>WiFi, Router & Printer Setup (On-Site)</span>
                 <span class="price-tag">$50 - $80</span>
             </div>
             <div class="estimator-row">
@@ -320,7 +348,7 @@
         <!-- Book an Appointment Section -->
         <div class="form-section">
             <h2 class="section-title">Book an Appointment</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Schedule convenient on-site service or request a callback.</p>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Schedule convenient on-site service, remote online assistance, or request a callback.</p>
             
             <form id="booking-form" action="https://formspree.io/f/xbglnenk" method="POST">
                 <div class="form-group">
@@ -332,12 +360,21 @@
                     <input type="tel" id="phone" name="phone" required placeholder="585-000-0000">
                 </div>
                 <div class="form-group">
+                    <label for="service-type">Preferred Service Type</label>
+                    <select id="service-type" name="service-type">
+                        <option value="On-Site Visit (In Person)">🚗 On-Site Visit (In Person)</option>
+                        <option value="Remote Assistance (Online)">🌐 Remote Assistance (Online)</option>
+                        <option value="Either / Not Sure">Either / Not Sure</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="service">Service Needed</label>
                     <select id="service" name="service">
                         <option value="Slow Computer Tune-Up">Slow Computer / Tune-Up</option>
                         <option value="Virus / Malware Removal">Virus / Malware Removal</option>
                         <option value="WiFi / Network / Printer Setup">WiFi / Network / Printer Setup</option>
                         <option value="SSD Upgrade / Hardware Repair">SSD Upgrade / Hardware Repair</option>
+                        <option value="Remote Software Assistance">Remote Software Assistance</option>
                         <option value="Computer Training">Computer Training</option>
                         <option value="Other">Other Service</option>
                     </select>
@@ -358,18 +395,18 @@
         <!-- Customer Reviews -->
         <h2 class="section-title">Client Feedback</h2>
         <div class="testimonial-card">
-            "Farid responded quickly and fixed my slow laptop on-site in less than an hour. Very professional and knowledgeable!"
+            "Farid fixed my laptop via remote support in under 30 minutes! Didn't even have to leave my house. Fantastic service!"
             <div class="testimonial-author">— Satisfied Rochester Client</div>
         </div>
         <div class="testimonial-card">
-            "Extremely helpful with setting up our home WiFi network and connecting all our devices seamlessly. Highly recommend!"
+            "Extremely helpful with setting up our home WiFi network and connecting all our devices seamlessly on-site. Highly recommend!"
             <div class="testimonial-author">— Local Homeowner</div>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; Computer Repairs - H Farid | Convenient On-Site PC Service</p>
+        <p>&copy; Computer Repairs - H Farid | Convenient On-Site & Remote PC Assistance</p>
         <p>Rochester, NY & Surrounding Areas</p>
     </footer>
 
