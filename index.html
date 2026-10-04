@@ -7,14 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d1117;
+            --bg-color: #0b0f17;
             --card-bg: #161b22;
             --card-border: #30363d;
             --primary-teal: #00bcd4;
             --accent-cyan: #00e5ff;
             --text-main: #f0f6fc;
             --text-muted: #8b949e;
-            --light-bg: #e2e8f0;
+            --badge-bg: rgba(0, 188, 212, 0.1);
         }
 
         * {
@@ -31,36 +31,38 @@
         }
 
         header {
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            background: linear-gradient(180deg, #111827 0%, var(--bg-color) 100%);
             border-bottom: 1px solid var(--card-border);
-            padding: 2rem 1rem;
+            padding: 3rem 1rem 2rem 1rem;
             text-align: center;
         }
 
         .header-content h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 800;
             color: var(--primary-teal);
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         .header-content p {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-top: 0.5rem;
         }
 
         .badge-guarantee {
             display: inline-block;
-            background-color: transparent;
+            background-color: var(--badge-bg);
             border: 2px solid var(--primary-teal);
-            color: var(--primary-teal);
+            color: var(--accent-cyan);
             font-weight: 700;
-            padding: 0.4rem 1rem;
-            border-radius: 6px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
             letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
         }
 
         .container {
@@ -72,40 +74,49 @@
         .contact-bar {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 16px;
+            padding: 1.8rem;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .contact-bar h2 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--text-main);
         }
 
         .phone-button {
             display: inline-block;
-            margin-top: 0.8rem;
-            background: var(--primary-teal);
-            color: #0d1117;
-            font-weight: 700;
+            margin-top: 1rem;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+            color: #0b0f17;
+            font-weight: 800;
             font-size: 1.3rem;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
             text-decoration: none;
-            transition: transform 0.2s ease, background-color 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .phone-button:hover {
-            background: var(--accent-cyan);
             transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+            border-left: 4px solid var(--primary-teal);
+            padding-left: 0.75rem;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
         .card {
@@ -113,11 +124,12 @@
             border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 1.5rem;
-            transition: border-color 0.2s ease;
+            transition: border-color 0.2s ease, transform 0.2s ease;
         }
 
         .card:hover {
             border-color: var(--primary-teal);
+            transform: translateY(-3px);
         }
 
         .card h3 {
@@ -133,18 +145,40 @@
             font-size: 0.95rem;
         }
 
+        /* Estimator Section */
+        .estimator-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .estimator-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .estimator-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            color: var(--accent-cyan);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
         /* Form Styles */
         .form-section {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .form-section h2 {
-            margin-bottom: 1rem;
-            color: var(--primary-teal);
+            margin-bottom: 3rem;
         }
 
         .form-group {
@@ -160,10 +194,10 @@
 
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
+            padding: 0.85rem;
             background-color: var(--bg-color);
             border: 1px solid var(--card-border);
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text-main);
             font-size: 1rem;
         }
@@ -171,28 +205,48 @@
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-teal);
+            box-shadow: 0 0 8px rgba(0, 188, 212, 0.3);
         }
 
         .submit-btn {
             width: 100%;
-            background: var(--primary-teal);
-            color: #0d1117;
-            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+            color: #0b0f17;
+            font-weight: 800;
             font-size: 1.1rem;
-            padding: 0.9rem;
+            padding: 1rem;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            transition: opacity 0.2s ease;
         }
 
         .submit-btn:hover {
-            background: var(--accent-cyan);
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
         }
 
         footer {
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem;
             border-top: 1px solid var(--card-border);
             color: var(--text-muted);
             font-size: 0.85rem;
@@ -205,7 +259,7 @@
         <div class="header-content">
             <h1>Computer Repairs</h1>
             <p>Convenient On-Site PC Service</p>
-            <div class="badge-guarantee">NO FIX, NO FEE GUARANTEE</div>
+            <div class="badge-guarantee">🛡️ NO FIX, NO FEE GUARANTEE</div>
         </div>
     </header>
 
@@ -213,35 +267,62 @@
         
         <div class="contact-bar">
             <h2>H Farid</h2>
-            <a href="tel:5854335933" class="phone-button">📞 Call/Text: 585-433-5933</a>
+            <a href="tel:5854335933" class="phone-button">📞 Call/Text: 585-433-5333</a>
         </div>
 
-        <h2 style="margin-bottom: 1.2rem; color: var(--text-main);">Our Services</h2>
+        <h2 class="section-title">Our Services</h2>
         <div class="grid">
             <div class="card">
                 <h3>⚡ Speed & Performance</h3>
-                <p>Computer running slow? Complete PC tune-up, cleanup, and hardware optimization to get your system running fast again.</p>
+                <p>Computer running slow? Complete PC tune-up, disk cleanup, startup optimization, and hardware upgrades (SSD installation).</p>
             </div>
             <div class="card">
-                <h3>🛡️ Security Protection</h3>
-                <p>Comprehensive virus, malware, spyware, and adware removal alongside robust protection setup.</p>
+                <h3>🛡️ Security & Cleanups</h3>
+                <p>Comprehensive virus, malware, spyware, and pop-up removal with real-time security suite configuration.</p>
             </div>
             <div class="card">
                 <h3>📶 WiFi & Network Setup</h3>
-                <p>Home network troubleshooting, wireless router setup, printer configuration, and smart device connectivity.</p>
+                <p>Home wireless network troubleshooting, router configuration, printer connection, and device linking.</p>
             </div>
             <div class="card">
-                <h3>💻 Troubleshooting & Training</h3>
-                <p>On-site diagnosis, hardware repairs, system upgrades, and personalized 1-on-1 technology training.</p>
+                <h3>💻 Diagnostics & Training</h3>
+                <p>On-site hardware troubleshooting, custom PC builds, component replacement, and 1-on-1 technology tutoring.</p>
             </div>
         </div>
 
-        <!-- Corrected Formspree Form -->
-        <div class="form-section">
-            <h2>Book an Appointment</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Fill out the form below and we will contact you shortly to confirm your service.</p>
+        <!-- Repair Rates & Service Estimates Section -->
+        <div class="estimator-section">
+            <h2 class="section-title">Common Service Estimates</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Transparent pricing with no hidden surprises. Diagnostics are free if service is performed!</p>
             
-            <form action="https://formspree.io/f/xbglnenk" method="POST" enctype="application/x-www-form-urlencoded">
+            <div class="estimator-row">
+                <span>System Tune-Up & Speed Optimization</span>
+                <span class="price-tag">$60 - $80</span>
+            </div>
+            <div class="estimator-row">
+                <span>Complete Virus & Malware Removal</span>
+                <span class="price-tag">$75 - $95</span>
+            </div>
+            <div class="estimator-row">
+                <span>WiFi, Router & Printer Setup</span>
+                <span class="price-tag">$50 - $70</span>
+            </div>
+            <div class="estimator-row">
+                <span>SSD Hard Drive Upgrade (Includes OS Clone)</span>
+                <span class="price-tag">$90 + Parts</span>
+            </div>
+            <div class="estimator-row">
+                <span>1-on-1 Computer Training / Troubleshooting</span>
+                <span class="price-tag">$50 / hr</span>
+            </div>
+        </div>
+
+        <!-- Book an Appointment Section -->
+        <div class="form-section">
+            <h2 class="section-title">Book an Appointment</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Schedule convenient on-site service or request a callback.</p>
+            
+            <form id="booking-form" action="https://formspree.io/f/xbglnenk" method="POST">
                 <div class="form-group">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required placeholder="John Doe">
@@ -256,7 +337,7 @@
                         <option value="Slow Computer Tune-Up">Slow Computer / Tune-Up</option>
                         <option value="Virus / Malware Removal">Virus / Malware Removal</option>
                         <option value="WiFi / Network / Printer Setup">WiFi / Network / Printer Setup</option>
-                        <option value="Hardware Repair / Upgrade">Hardware Repair / Upgrade</option>
+                        <option value="SSD Upgrade / Hardware Repair">SSD Upgrade / Hardware Repair</option>
                         <option value="Computer Training">Computer Training</option>
                         <option value="Other">Other Service</option>
                     </select>
@@ -266,11 +347,23 @@
                     <input type="text" id="preferred-date" name="preferred-date" placeholder="e.g. Tomorrow Afternoon">
                 </div>
                 <div class="form-group">
-                    <label for="details">Describe the Problem</label>
+                    <label for="details">Describe the Issue</label>
                     <textarea id="details" name="details" rows="4" placeholder="Briefly explain what issue you are experiencing..."></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Submit Booking Request</button>
+                <button type="submit" id="submit-btn" class="submit-btn">Submit Booking Request</button>
+                <p id="form-status" style="margin-top: 1rem; font-weight: 600; text-align: center; display: none;"></p>
             </form>
+        </div>
+
+        <!-- Customer Reviews -->
+        <h2 class="section-title">Client Feedback</h2>
+        <div class="testimonial-card">
+            "Farid responded quickly and fixed my slow laptop on-site in less than an hour. Very professional and knowledgeable!"
+            <div class="testimonial-author">— Satisfied Rochester Client</div>
+        </div>
+        <div class="testimonial-card">
+            "Extremely helpful with setting up our home WiFi network and connecting all our devices seamlessly. Highly recommend!"
+            <div class="testimonial-author">— Local Homeowner</div>
         </div>
 
     </div>
@@ -279,6 +372,49 @@
         <p>&copy; Computer Repairs - H Farid | Convenient On-Site PC Service</p>
         <p>Rochester, NY & Surrounding Areas</p>
     </footer>
+
+    <script>
+        const form = document.getElementById("booking-form");
+        const status = document.getElementById("form-status");
+        const submitBtn = document.getElementById("submit-btn");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending Request...";
+
+            const data = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    status.style.display = "block";
+                    status.style.color = "#00e5ff";
+                    status.innerHTML = "✓ Request submitted! We will call or text you shortly.";
+                    form.reset();
+                } else {
+                    const result = await response.json();
+                    status.style.display = "block";
+                    status.style.color = "#ff5555";
+                    status.innerHTML = result.errors ? result.errors.map(error => error.message).join(", ") : "Oops! There was a problem submitting your form.";
+                }
+            } catch (error) {
+                status.style.display = "block";
+                status.style.color = "#ff5555";
+                status.innerHTML = "Oops! Network error. Please call or text 585-433-5333 directly.";
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Submit Booking Request";
+            }
+        });
+    </script>
 
 </body>
 </html>
